@@ -13,7 +13,7 @@ func (b BubbleSort[T]) Sort(arr []T, compare func(a, b T) bool) {
 	for n > 0 {
 		newN := 0
 		for i := 0; i < n-1; i++ {
-			if compare(arr[i], arr[i+1]) {
+			if compare(arr[i+1], arr[i]) {
 				arr[i], arr[i+1] = arr[i+1], arr[i]
 				newN = i + 1
 			}
