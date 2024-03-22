@@ -18,7 +18,7 @@ func TestBubbleSort(t *testing.T) {
 		bubblesort.New[int]().Sort(arr, compareInt)
 
 		for i := 0; i < len(arr)-1; i++ {
-			assert.LessOrEqual(t, arr[i], arr[i+1])
+			assert.GreaterOrEqual(t, arr[i], arr[i+1])
 		}
 	})
 }

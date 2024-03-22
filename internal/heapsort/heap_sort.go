@@ -20,20 +20,20 @@ func (h HeapSort[T]) Sort(arr []T, compare func(a, b T) bool) {
 }
 
 func heapify[T any](arr []T, n, i int, compare func(a, b T) bool) {
-	largest := i
+	smallest := i
 	left := 2*i + 1
 	right := 2*i + 2
 
-	if left < n && compare(arr[left], arr[largest]) {
-		largest = left
+	if left < n && compare(arr[smallest], arr[left]) {
+		smallest = left
 	}
 
-	if right < n && compare(arr[right], arr[largest]) {
-		largest = right
+	if right < n && compare(arr[smallest], arr[right]) {
+		smallest = right
 	}
 
-	if largest != i {
-		arr[i], arr[largest] = arr[largest], arr[i]
-		heapify(arr, n, largest, compare)
+	if smallest != i {
+		arr[i], arr[smallest] = arr[smallest], arr[i]
+		heapify(arr, n, smallest, compare)
 	}
 }
