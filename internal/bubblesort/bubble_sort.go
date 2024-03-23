@@ -8,6 +8,10 @@ func New[T any]() internal.SortingAlgorithm[T] {
 	return BubbleSort[T]{}
 }
 
+func (b BubbleSort[T]) String() string {
+	return "Bubble Sort"
+}
+
 func (b BubbleSort[T]) Sort(arr []T, compare func(a, b T) bool) {
 	n := len(arr)
 	for n > 0 {

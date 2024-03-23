@@ -1,6 +1,7 @@
 package quicksort
 
 import (
+	"fmt"
 	"sync"
 
 	"github.com/danitrod/sorting-algorithms/internal"
@@ -20,6 +21,14 @@ func New[T any](maxThreads int) internal.SortingAlgorithm[T] {
 		maxThreads:  maxThreads,
 		usedThreads: 0,
 	}
+}
+
+func (q QuickSort[T]) String() string {
+	if q.maxThreads == 0 {
+		return "Quick Sort"
+	}
+
+	return fmt.Sprintf("Parallel Quick Sort (%d threads)", q.maxThreads)
 }
 
 func (q QuickSort[T]) Sort(arr []T, compare func(a, b T) bool) {

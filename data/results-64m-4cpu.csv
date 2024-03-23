@@ -1,0 +1,8 @@
+algorithm,average,fastest,iterations,median,slowest,standard_deviation
+Bubble Sort,280398,277800,500,279528,459096,8581
+Heap Sort,2077,1963,500,2006,2836,171
+Quick Sort,1233,1137,500,1165,1855,172
+Parallel Quick Sort (2 threads),825,690,500,745,2365,213
+Parallel Quick Sort (4 threads),1068,936,500,973,5063,293
+Parallel Quick Sort (8 threads),630,462,500,558,1700,207
+Parallel Quick Sort (16 threads),675,490,500,575,2386,256

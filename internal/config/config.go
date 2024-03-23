@@ -43,6 +43,5 @@ func NewConfig[T any]() (config[T], error) {
 		return config[T]{}, errUnknownAlgorithm
 	}
 
-	slog.Info(fmt.Sprintf("Chosen algorithm: %s", flag.Arg(0)))
 	return config[T]{Algorithm: algo}, nil
 }

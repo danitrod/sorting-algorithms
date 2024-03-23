@@ -8,6 +8,10 @@ func New[T any]() internal.SortingAlgorithm[T] {
 	return HeapSort[T]{}
 }
 
+func (h HeapSort[T]) String() string {
+	return "Heap Sort"
+}
+
 func (h HeapSort[T]) Sort(arr []T, compare func(a, b T) bool) {
 	for i := len(arr)/2 - 1; i >= 0; i-- {
 		heapify(arr, len(arr), i, compare)
