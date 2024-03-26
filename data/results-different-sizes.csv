@@ -1,0 +1,50 @@
+algorithm,average,fastest,iterations,dataset_size,median,slowest,standard_deviation
+Bubble Sort,606,561,500,357,605,2131,84
+Bubble Sort,1071,980,500,477,1059,2345,97
+Bubble Sort,2321,2175,500,715,2299,4211,170
+Bubble Sort,9044,8688,500,1431,8817,22228,1080
+Bubble Sort,58531,57292,500,3578,58125,62418,1016
+Bubble Sort,105974,104328,500,4771,105700,113508,1189
+Bubble Sort,246172,242544,500,7157,245549,259367,2565
+Heap Sort,49,38,500,357,44,1196,56
+Heap Sort,67,57,500,477,58,584,42
+Heap Sort,123,99,500,715,104,1605,117
+Heap Sort,282,241,500,1431,252,1981,159
+Heap Sort,838,733,500,3578,757,2699,334
+Heap Sort,1151,1036,500,4771,1058,3058,328
+Heap Sort,1818,1659,500,7157,1683,3895,395
+Quick Sort,28,18,500,357,22,1135,59
+Quick Sort,43,30,500,477,37,1414,66
+Quick Sort,69,46,500,715,53,1302,84
+Quick Sort,175,135,500,1431,144,1728,134
+Quick Sort,516,417,500,3578,435,2484,317
+Quick Sort,725,620,500,4771,636,2730,312
+Quick Sort,1321,1119,500,7157,1141,3753,519
+Parallel Quick Sort (2 threads),42,21,500,357,35,1192,87
+Parallel Quick Sort (2 threads),51,23,500,477,35,2185,125
+Parallel Quick Sort (2 threads),68,41,500,715,53,1486,106
+Parallel Quick Sort (2 threads),176,137,500,1431,154,1689,129
+Parallel Quick Sort (2 threads),529,434,500,3578,456,2013,277
+Parallel Quick Sort (2 threads),607,503,500,4771,527,2301,272
+Parallel Quick Sort (2 threads),958,784,500,7157,819,2839,381
+Parallel Quick Sort (4 threads),38,24,500,357,35,757,36
+Parallel Quick Sort (4 threads),47,27,500,477,37,903,60
+Parallel Quick Sort (4 threads),70,35,500,715,52,1784,125
+Parallel Quick Sort (4 threads),158,83,500,1431,118,1836,186
+Parallel Quick Sort (4 threads),411,309,500,3578,341,2121,242
+Parallel Quick Sort (4 threads),640,538,500,4771,578,2123,220
+Parallel Quick Sort (4 threads),1059,905,500,7157,942,2771,321
+Parallel Quick Sort (8 threads),47,24,500,357,33,1609,119
+Parallel Quick Sort (8 threads),62,27,500,477,45,1571,117
+Parallel Quick Sort (8 threads),90,42,500,715,69,1658,136
+Parallel Quick Sort (8 threads),185,76,500,1431,160,2729,208
+Parallel Quick Sort (8 threads),443,182,500,3578,388,2739,374
+Parallel Quick Sort (8 threads),507,241,500,4771,319,3438,385
+Parallel Quick Sort (8 threads),962,783,500,7157,867,2390,241
+Parallel Quick Sort (16 threads),93,41,500,357,66,2840,214
+Parallel Quick Sort (16 threads),140,43,500,477,97,2959,287
+Parallel Quick Sort (16 threads),172,61,500,715,136,2285,236
+Parallel Quick Sort (16 threads),282,112,500,1431,251,3461,300
+Parallel Quick Sort (16 threads),660,207,500,3578,680,3241,523
+Parallel Quick Sort (16 threads),774,288,500,4771,717,4107,498
+Parallel Quick Sort (16 threads),908,390,500,7157,962,2427,437

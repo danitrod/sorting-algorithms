@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log/slog"
 
 	"github.com/danitrod/sorting-algorithms/internal/bencher"
@@ -17,16 +18,27 @@ func main() {
 		panic("error: " + err.Error())
 	}
 
-	b := bencher.New(cfg.Algorithm.String(), numIterations)
-
-	results, err := b.Bench(func() {
-		unsortedPlayers := make([]players.Player, len(playersFromDataset))
-		copy(unsortedPlayers, playersFromDataset)
-		cfg.Algorithm.Sort(unsortedPlayers, players.Compare)
-	})
-	if err != nil {
-		panic("error: " + err.Error())
+	sizes := []int{
+		len(playersFromDataset) / 20,
+		len(playersFromDataset) / 15,
+		len(playersFromDataset) / 10,
+		len(playersFromDataset) / 5,
+		len(playersFromDataset) / 2,
+		int(float32(len(playersFromDataset)) / 1.5),
+		len(playersFromDataset),
 	}
 
-	slog.Info("Successfully executed experiment", slog.Attr{Key: "results", Value: slog.AnyValue(results)})
+	b := bencher.New(cfg.Algorithm.String(), numIterations)
+
+	for _, size := range sizes {
+		results, err := b.Bench(func() {
+			unsortedPlayers := make([]players.Player, size)
+			copy(unsortedPlayers, playersFromDataset[:size])
+			cfg.Algorithm.Sort(unsortedPlayers, players.Compare)
+		}, size)
+		if err != nil {
+			panic("error: " + err.Error())
+		}
+		slog.Info(fmt.Sprintf("Successfully executed experiment with size %d", size), slog.Attr{Key: "results", Value: slog.AnyValue(results)})
+	}
 }

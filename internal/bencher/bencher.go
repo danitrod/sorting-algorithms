@@ -30,12 +30,13 @@ type BenchResults struct {
 	Average           int64  `csv:"average"`
 	Fastest           int64  `csv:"fastest"`
 	Iterations        int    `csv:"iterations"`
+	DatasetSize       int    `csv:"dataset_size"`
 	Median            int64  `csv:"median"`
 	Slowest           int64  `csv:"slowest"`
 	StandardDeviation int64  `csv:"standard_deviation"`
 }
 
-func (b Bencher) Bench(fn func()) (BenchResults, error) {
+func (b Bencher) Bench(fn func(), datasetSize int) (BenchResults, error) {
 	slog.Info(fmt.Sprintf("Running experiment with algorithm %s and %d iterations", b.algorithm, b.iterations))
 
 	results := make([]int64, 0, b.iterations)
@@ -59,6 +60,7 @@ func (b Bencher) Bench(fn func()) (BenchResults, error) {
 	benchResults := BenchResults{
 		Algorithm:         b.algorithm,
 		Average:           avg,
+		DatasetSize:       datasetSize,
 		Fastest:           results[0],
 		Iterations:        b.iterations,
 		Median:            results[b.iterations/2],
