@@ -41,27 +41,28 @@ func (q QuickSort[T]) quicksort(arr []T, lo, hi int, compare func(a, b T) bool) 
 	}
 
 	p := partition(arr, lo, hi, compare)
-	if q.usedThreads < q.maxThreads {
-		q.usedThreads += 2
 
-		wg := sync.WaitGroup{}
-		wg.Add(2)
-
-		go func() {
-			q.quicksort(arr, lo, p-1, compare)
-			wg.Done()
-		}()
-		go func() {
-			q.quicksort(arr, p+1, hi, compare)
-			wg.Done()
-		}()
-
-		wg.Wait()
+	if q.usedThreads >= q.maxThreads {
+		q.quicksort(arr, lo, p-1, compare)
+		q.quicksort(arr, p+1, hi, compare)
 		return
 	}
 
-	q.quicksort(arr, lo, p-1, compare)
-	q.quicksort(arr, p+1, hi, compare)
+	q.usedThreads += 2
+
+	wg := sync.WaitGroup{}
+	wg.Add(2)
+
+	go func() {
+		q.quicksort(arr, lo, p-1, compare)
+		wg.Done()
+	}()
+	go func() {
+		q.quicksort(arr, p+1, hi, compare)
+		wg.Done()
+	}()
+
+	wg.Wait()
 }
 
 func partition[T any](arr []T, lo, hi int, compare func(a, b T) bool) int {

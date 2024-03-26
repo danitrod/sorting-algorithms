@@ -25,12 +25,12 @@ func Compare(p1, p2 Player) bool {
 		return p1.Assists > p2.Assists
 	}
 
-	if p1.PlayingTime != p2.PlayingTime {
-		return p1.PlayingTime > p2.PlayingTime
-	}
-
 	if p1.MatchesPlayed != p2.MatchesPlayed {
 		return p1.MatchesPlayed > p2.MatchesPlayed
+	}
+
+	if p1.PlayingTime != p2.PlayingTime {
+		return p1.PlayingTime > p2.PlayingTime
 	}
 
 	return p1.Name < p2.Name
